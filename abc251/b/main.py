@@ -1,3 +1,5 @@
+import itertools
+
 # 入力：N(文字列または数)========================
 
 #str型で受け取るとき
@@ -45,6 +47,31 @@ l = list(map(int, input().split()))
 # (N,1)行列データ==============================
 
 
-print(A)
-print(B)
-print(l)
+# print(A)
+# print(B)
+# print(l)
+
+
+good_list = []
+
+l_len = len(l)
+
+
+list1 = list(itertools.combinations(l, 1))
+list2 = list(itertools.combinations(l, 2))
+list3 = list(itertools.combinations(l, 3))
+
+list_all = list1 + list2 + list3
+
+
+# print(list_all)
+
+
+new_list = []
+for el in list_all:
+  sumel = sum(el)
+  if(sumel <= B):
+    new_list.append(sumel)
+
+
+print(len(set(new_list)))
