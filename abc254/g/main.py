@@ -35,8 +35,7 @@
 # 例；1 3
 # ---------------------------------------
 
-H, W = map(int, input().split())
-R, C = map(int, input().split())
+# A, B = map(int, input().split())
 # >>>print(A)
 # 1
 # >>>print(A,B)
@@ -55,41 +54,3 @@ R, C = map(int, input().split())
 # N, S = map(str, input().split())
 # --------------------------------------------
 
-
-
-# print(H)
-# print(W)
-# print(R)
-# print(C)
-
-
-pattern=0
-
-# 角の時
-if((H==R) or (R==1)):
-  pattern = pattern + 1
-if((W==C) or (C==1)):
-  pattern = pattern + 1
-
-hoge=
-  hoge=hoge+1
-
-if(H==1):
-  hoge=hoge+1
-
-
-if(pattern==0):
-  print(4)
-elif(pattern==1):
-  if(W==1)or(H==1):
-    print(2)
-  else:
-    print(3)
-else:
-  if(W==1 and H==1):
-    print(0)
-  else:
-    if(H==R or W==C):
-      print(1)
-    else:
-      print(2)

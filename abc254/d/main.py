@@ -3,7 +3,7 @@
 
 # 提出
 # acc submit
-
+import itertools
 
 
 # 入力：N(文字列または数)========================
@@ -11,7 +11,7 @@
 #str型で受け取るとき
 # s = input()
 #int型で受け取るとき
-# s = int(input())
+s = int(input())
 #float型(小数)で受け取るとき
 # s = float(input())
 
@@ -35,8 +35,7 @@
 # 例；1 3
 # ---------------------------------------
 
-H, W = map(int, input().split())
-R, C = map(int, input().split())
+# A, B = map(int, input().split())
 # >>>print(A)
 # 1
 # >>>print(A,B)
@@ -57,39 +56,45 @@ R, C = map(int, input().split())
 
 
 
-# print(H)
-# print(W)
-# print(R)
-# print(C)
+def prime_factorize(n):
+    a = []
+    while n % 2 == 0:
+        a.append(2)
+        n //= 2
+    f = 3
+    while f * f <= n:
+        if n % f == 0:
+            a.append(f)
+            n //= f
+        else:
+            f += 2
+    if n != 1:
+        a.append(n)
+    return a
 
+# print(s)
 
-pattern=0
+li = list(range(s))
 
-# 角の時
-if((H==R) or (R==1)):
-  pattern = pattern + 1
-if((W==C) or (C==1)):
-  pattern = pattern + 1
+kumi = list(itertools.combinations(li, 2))
 
-hoge=
-  hoge=hoge+1
+# print(kumi)
 
-if(H==1):
-  hoge=hoge+1
+# print(li)
 
+# print(prime_factorize(s))
 
-if(pattern==0):
-  print(4)
-elif(pattern==1):
-  if(W==1)or(H==1):
-    print(2)
-  else:
-    print(3)
-else:
-  if(W==1 and H==1):
-    print(0)
-  else:
-    if(H==R or W==C):
-      print(1)
-    else:
-      print(2)
+nu = 0
+
+for ku in kumi:
+  kake = ku[0] * ku[1]
+  # print(kake)
+  # 
+  aa = prime_factorize(kake)
+  aaset = set(aa)
+ 
+ 
+  if(len(aa) == len(aaset) *2 ):
+    nu = nu +1
+
+print(nu)
